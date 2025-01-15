@@ -20,7 +20,7 @@ router.post(
   createUser
 );
 router.post("/toggle-block", authenticateJWT, toggleUserBlock);
-router.get("/user-analytics", authenticateJWT, getUserAnalytics);
+router.get("/userAnalytics", authenticateJWT, getUserAnalytics);
 router.post("/login", login);
 router.get("/pendingUser", authenticateJWT, getPendingUsers);
 export default router;

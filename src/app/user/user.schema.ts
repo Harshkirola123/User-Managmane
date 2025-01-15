@@ -7,6 +7,7 @@ interface IUser extends Document {
   is2FAEnabled: boolean;
   onboardingStatus: string; // "pending", "completed"
   kycStatus: string; // "pending", "completed"
+  kycPhoto?: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -19,6 +20,7 @@ const UserSchema = new Schema<IUser>(
     is2FAEnabled: { type: Boolean, default: false },
     onboardingStatus: { type: String, default: "pending" },
     kycStatus: { type: String, default: "pending" },
+    kycPhoto: { type: String, default: null },
   },
   { timestamps: true }
 );

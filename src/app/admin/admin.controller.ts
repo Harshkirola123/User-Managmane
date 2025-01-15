@@ -162,3 +162,20 @@ export async function getPendingUsers(req: Request, res: Response) {
     res.status(500).json({ message: "Error fetching pending users" });
   }
 }
+
+export const getProfile = async (req: Request, res: Response) => {
+  try {
+    const email = req.body.email; // Assuming the user is authenticated and userId is set
+
+    const user = await User.findOne({ email }).select("-password"); // Don't return the password field
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({ Message: "here will be user info" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
